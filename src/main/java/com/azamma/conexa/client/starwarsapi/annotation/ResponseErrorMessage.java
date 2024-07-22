@@ -1,4 +1,4 @@
-package ar.com.sancorsalud.grillasneoapi.clients.annotation;
+package com.azamma.conexa.client.starwarsapi.annotation;
 
 import java.lang.annotation.*;
 

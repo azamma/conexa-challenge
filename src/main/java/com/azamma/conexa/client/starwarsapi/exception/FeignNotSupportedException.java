@@ -1,4 +1,4 @@
-package ar.com.sancorsalud.grillasneoapi.clients.exception;
+package com.azamma.conexa.client.starwarsapi.exception;
 
 import feign.Response;
 import lombok.Getter;

@@ -1,4 +1,4 @@
-package ar.com.sancorsalud.grillasneoapi.exception;
+package com.azamma.conexa.exception;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -11,15 +11,15 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @Getter
 @Setter
 @ResponseStatus(value = HttpStatus.HTTP_VERSION_NOT_SUPPORTED)
-public class ResourceNotSupportedException extends RuntimeException {
+public class ConexaNotSupportedException extends RuntimeException {
     private String errorCode;
 
     /**
-     * ResourceNotFoundException
+     * ConexaNotSupportedException
      *
      * @param message
      */
-    public ResourceNotSupportedException(String message) {
+    public ConexaNotSupportedException(String message) {
         super(message);
     }
 
@@ -29,13 +29,13 @@ public class ResourceNotSupportedException extends RuntimeException {
      * @param message
      * @param errorCode
      */
-    public ResourceNotSupportedException(String message, String errorCode) {
+    public ConexaNotSupportedException(String message, String errorCode) {
         super(message);
         this.errorCode = errorCode;
     }
 
     /**
-     * 
+     *
      */
     private static final long serialVersionUID = -2858918579477309808L;
 

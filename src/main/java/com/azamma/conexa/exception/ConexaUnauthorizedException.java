@@ -1,4 +1,4 @@
-package ar.com.sancorsalud.grillasneoapi.exception;
+package com.azamma.conexa.exception;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -11,15 +11,15 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @Getter
 @Setter
 @ResponseStatus(value = HttpStatus.UNAUTHORIZED)
-public class ResourceUnauthorizedException extends RuntimeException {
+public class ConexaUnauthorizedException extends RuntimeException {
     private String errorCode;
 
     /**
-     * ResourceUnauthorizedException
+     * ConexaUnauthorizedException
      *
      * @param message
      */
-    public ResourceUnauthorizedException(String message) {
+    public ConexaUnauthorizedException(String message) {
         super(message);
     }
 
@@ -29,13 +29,13 @@ public class ResourceUnauthorizedException extends RuntimeException {
      * @param message
      * @param errorCode
      */
-    public ResourceUnauthorizedException(String message, String errorCode) {
+    public ConexaUnauthorizedException(String message, String errorCode) {
         super(message);
         this.errorCode = errorCode;
     }
 
     /**
-     * 
+     *
      */
     private static final long serialVersionUID = 810150369154618006L;
 

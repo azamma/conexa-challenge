@@ -1,12 +1,12 @@
-package ar.com.sancorsalud.grillasneoapi.clients.config;
+package com.azamma.conexa.client.starwarsapi.config;
 
-import ar.com.sancorsalud.grillasneoapi.clients.exception.*;
+import com.azamma.conexa.client.starwarsapi.exception.*;
 import feign.Response;
 import feign.codec.ErrorDecoder;
 import org.springframework.stereotype.Component;
 
-import static ar.com.sancorsalud.grillasneoapi.clients.annotation.ResponseErrorMessage.DEFAULT_FEIGN_API_ERROR_MESSAGE;
-import static ar.com.sancorsalud.grillasneoapi.clients.annotation.ResponseErrorMessage.FEIGN_API_ERROR_MESSAGE_HEADER;
+import static com.azamma.conexa.client.starwarsapi.annotation.ResponseErrorMessage.DEFAULT_FEIGN_API_ERROR_MESSAGE;
+import static com.azamma.conexa.client.starwarsapi.annotation.ResponseErrorMessage.FEIGN_API_ERROR_MESSAGE_HEADER;
 
 /**
  * {@code FeignErrorDecoder}

@@ -1,4 +1,4 @@
-package ar.com.sancorsalud.grillasneoapi.exception;
+package com.azamma.conexa.exception;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -6,20 +6,20 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 /**
- * @author Alejandro Moya
+ * @author azamma
  */
 @Getter
 @Setter
 @ResponseStatus(value = HttpStatus.BAD_REQUEST)
-public class ResourceBadRequestException extends RuntimeException {
+public class ConexaBadRequestException extends RuntimeException {
     private String errorCode;
 
     /**
-     * ResourceBadRequestException
+     * ConexaBadRequestException
      *
      * @param message
      */
-    public ResourceBadRequestException(String message) {
+    public ConexaBadRequestException(String message) {
         super(message);
     }
 
@@ -29,13 +29,13 @@ public class ResourceBadRequestException extends RuntimeException {
      * @param message
      * @param errorCode
      */
-    public ResourceBadRequestException(String message, String errorCode) {
+    public ConexaBadRequestException(String message, String errorCode) {
         super(message);
         this.errorCode = errorCode;
     }
 
     /**
-     * 
+     *
      */
     private static final long serialVersionUID = -5059364464799202094L;
 

@@ -4,11 +4,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.List;
-
 @Getter
 @Setter
-public class PersonResponseDTO {
+public class PersonPropertiesDTO {
     @JsonProperty("name")
     private String name;
 
@@ -35,18 +33,6 @@ public class PersonResponseDTO {
 
     @JsonProperty("skin_color")
     private String skinColor;
-
-    @JsonProperty("films")
-    private List<String> films;
-
-    @JsonProperty("species")
-    private List<String> species;
-
-    @JsonProperty("starships")
-    private List<String> starships;
-
-    @JsonProperty("vehicles")
-    private List<String> vehicles;
 
     @JsonProperty("url")
     private String url;

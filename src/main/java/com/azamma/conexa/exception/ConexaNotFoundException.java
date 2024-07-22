@@ -1,4 +1,4 @@
-package ar.com.sancorsalud.grillasneoapi.exception;
+package com.azamma.conexa.exception;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -11,15 +11,15 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @Getter
 @Setter
 @ResponseStatus(value = HttpStatus.NOT_FOUND)
-public class ResourceNotFoundException extends RuntimeException {
+public class ConexaNotFoundException extends RuntimeException {
     private String errorCode;
 
     /**
-     * ResourceNotFoundException
+     * ConexaNotFoundException
      *
      * @param message
      */
-    public ResourceNotFoundException(String message) {
+    public ConexaNotFoundException(String message) {
         super(message);
     }
 
@@ -29,13 +29,13 @@ public class ResourceNotFoundException extends RuntimeException {
      * @param message
      * @param errorCode
      */
-    public ResourceNotFoundException(String message, String errorCode) {
+    public ConexaNotFoundException(String message, String errorCode) {
         super(message);
         this.errorCode = errorCode;
     }
 
     /**
-     * 
+     *
      */
     private static final long serialVersionUID = 5384148963002189453L;
 
