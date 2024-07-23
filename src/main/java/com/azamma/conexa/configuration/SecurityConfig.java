@@ -9,8 +9,6 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 
-import static org.springframework.security.config.http.SessionCreationPolicy.STATELESS;
-
 /**
  * {@code SecurityConfig}
  * Configuración de seguridad para la aplicación que utiliza Spring Security.
@@ -46,13 +44,15 @@ public class SecurityConfig {
      */
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        // Configura la seguridad HTTP
+        // Configuración para permitir el acceso a Swagger UI sin autenticación
         http
                 .csrf()
                 .disable() // Desactiva la protección CSRF
                 .authorizeHttpRequests()
+                .antMatchers("/api/**")
+                .authenticated()
                 .anyRequest()
-                .authenticated(); // Requiere autenticación para todas las solicitudes
+                .permitAll(); // Requiere autenticación para todas las solicitudes restantes
 
         // Configura el manejo de JWT para la autenticación
         http
@@ -63,7 +63,7 @@ public class SecurityConfig {
         // Configura la política de manejo de sesión
         http
                 .sessionManagement()
-                .sessionCreationPolicy(STATELESS); // No mantiene estado de sesión
+                .sessionCreationPolicy(SessionCreationPolicy.STATELESS); // No mantiene estado de sesión
 
         return http.build(); // Devuelve la configuración de seguridad construida
     }

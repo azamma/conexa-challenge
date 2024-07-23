@@ -1,5 +1,5 @@
-# Usar una imagen base con Maven y JDK 11
-FROM maven:3.8.4-openjdk-11 AS build
+# Usar una imagen base con Maven y JDK 8
+FROM maven:3.8.4-openjdk-8 AS build
 
 # Establecer un directorio de trabajo
 WORKDIR /app
@@ -10,8 +10,8 @@ COPY . /app
 # Ejecutar Maven para construir el proyecto
 RUN mvn clean package
 
-# Crear una nueva imagen basada en OpenJDK 11
-FROM openjdk:11-jre-slim-buster
+# Crear una nueva imagen basada en OpenJDK 8
+FROM openjdk:8-jre-slim-buster
 
 # Exponer el puerto que utilizará la aplicación
 EXPOSE 8080
