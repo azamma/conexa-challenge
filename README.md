@@ -2,7 +2,7 @@
 
 ## Descripción del Proyecto
 
-Conexa Challenge es una aplicación Spring Boot desplegada en Fly.io que utiliza Keycloak para la autenticación. La aplicación está diseñada para integrar con una API de Star Wars y proporciona una interfaz de usuario para interactuar con los datos de la API a través de Swagger.
+Aplicación Spring Boot para challenge de Conexa desplegada en Fly.io que utiliza Keycloak para la autenticación. La aplicación está diseñada para integrar con una API de Star Wars y proporciona una interfaz de usuario para interactuar con los datos de la API a través de Swagger.
 
 ### Tecnologías y Librerías Utilizadas
 
