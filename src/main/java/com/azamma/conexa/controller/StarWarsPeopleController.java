@@ -2,6 +2,8 @@ package com.azamma.conexa.controller;
 
 import com.azamma.conexa.client.starwarsapi.dto.response.people.PeopleResponseDTO;
 import com.azamma.conexa.client.starwarsapi.dto.response.people.PersonResponseDTO;
+import com.azamma.conexa.client.starwarsapi.dto.response.people.PersonSearchResponseDTO;
+import com.azamma.conexa.exception.ErrorDetails;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.Parameters;
@@ -35,6 +37,18 @@ public interface StarWarsPeopleController {
     ResponseEntity<PeopleResponseDTO> getAllPeople(
             @RequestParam(value = "page", defaultValue = "1") @Positive @Parameter(description = "Número de página para la consulta") Integer page,
             @RequestParam(value = "limit", defaultValue = "10") @Positive @Parameter(description = "Número de elementos por página") Integer limit);
+
+    @Operation(summary = "Buscar recursos de People con filtros.")
+    @Parameters({
+            @Parameter(name = "name", description = "Nombre de la persona a buscar.", in = ParameterIn.QUERY, schema = @Schema(type = "string"))
+    })
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Búsqueda de People realizada correctamente", content = @Content(schema = @Schema(implementation = PeopleResponseDTO.class))),
+            @ApiResponse(responseCode = "400", description = "La petición es inválida", content = @Content(schema = @Schema(implementation = ErrorDetails.class))),
+            @ApiResponse(responseCode = "500", description = "Error interno al procesar la respuesta", content = @Content(schema = @Schema(implementation = ErrorDetails.class)))
+    })
+    ResponseEntity<PersonSearchResponseDTO> searchPeople(
+            @RequestParam(value = "name") @Parameter(description = "Nombre de la persona a buscar") String name);
 
     @Operation(summary = "Obtener un recurso específico de People por ID.")
     @ApiResponses(value = {

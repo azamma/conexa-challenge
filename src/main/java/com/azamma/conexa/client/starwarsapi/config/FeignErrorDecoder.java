@@ -10,14 +10,34 @@ import static com.azamma.conexa.client.starwarsapi.annotation.ResponseErrorMessa
 
 /**
  * {@code FeignErrorDecoder}
- * Intercepta errores de clientes Feign y dispara excepciones personalizadas
- * con datos de cliente como el nombre de la api, la url y el método
+ * Implementa la interfaz {@link ErrorDecoder} para interceptar errores de clientes Feign y lanzar
+ * excepciones personalizadas. La clase maneja los errores de la API proporcionando mensajes de error
+ * configurados y detalles específicos de la solicitud como la URL y el método.
+ *
+ * <p>Esta implementación permite personalizar el manejo de errores en función del código de estado HTTP
+ * devuelto por la API Feign y la configuración del mensaje de error.</p>
+ *
+ * <p>La clase soporta distintos códigos de estado HTTP y lanza excepciones específicas para cada caso.
+ * También proporciona un mensaje de error predeterminado si no se encuentra uno en los encabezados de la
+ * respuesta.</p>
  *
  * @author Agustin Zammarrelli
  */
 @Component
 public class FeignErrorDecoder implements ErrorDecoder {
 
+    /**
+     * Decodifica los errores de la respuesta de Feign y lanza una excepción personalizada basada en el
+     * código de estado HTTP y el mensaje de error configurado.
+     *
+     * <p>El mensaje de error se extrae del encabezado de la respuesta. Si no está presente, se utiliza
+     * un mensaje de error predeterminado. Dependiendo del código de estado de la respuesta, se lanzan
+     * diferentes tipos de excepciones.</p>
+     *
+     * @param methodKey La clave del método que identifica la solicitud de la API Feign.
+     * @param response  La {@link Response} de Feign que contiene el código de estado y los encabezados de la respuesta.
+     * @return Una excepción personalizada correspondiente al código de estado de la respuesta.
+     */
     @Override
     public Exception decode(String methodKey, Response response) {
 
@@ -49,4 +69,3 @@ public class FeignErrorDecoder implements ErrorDecoder {
         }
     }
 }
-

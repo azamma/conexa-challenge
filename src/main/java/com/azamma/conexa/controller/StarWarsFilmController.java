@@ -1,10 +1,12 @@
 package com.azamma.conexa.controller;
 
 import com.azamma.conexa.client.starwarsapi.dto.response.films.FilmResponseDTO;
-import com.azamma.conexa.client.starwarsapi.dto.response.films.FilmResultDTO;
+import com.azamma.conexa.client.starwarsapi.dto.response.films.FilmSearchResponseDTO;
 import com.azamma.conexa.client.starwarsapi.dto.response.films.FilmsResponseDTO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.Parameters;
+import io.swagger.v3.oas.annotations.enums.ParameterIn;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -12,7 +14,9 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Positive;
 
 /**
@@ -28,9 +32,21 @@ public interface StarWarsFilmController {
     })
     ResponseEntity<FilmsResponseDTO> getAllFilms();
 
+    @Operation(summary = "Buscar Films por título.")
+    @Parameters({
+            @Parameter(name = "title", description = "Nombre de la película a buscar", in = ParameterIn.QUERY, schema = @Schema(type = "string"))
+    })
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Los resultados de la búsqueda de Films fueron consultados correctamente", content = @Content(schema = @Schema(implementation = FilmSearchResponseDTO.class))),
+            @ApiResponse(responseCode = "400", description = "Título de Film inválido"),
+            @ApiResponse(responseCode = "500", description = "Error interno al procesar la respuesta")
+    })
+    ResponseEntity<FilmSearchResponseDTO> searchFilms(
+            @Parameter(description = "Título del Film para buscar", required = true) @RequestParam @NotBlank String title);
+
     @Operation(summary = "Obtener un recurso específico de Films por ID.")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "El recurso de Films fue consultado correctamente", content = @Content(schema = @Schema(implementation = FilmResultDTO.class))),
+            @ApiResponse(responseCode = "200", description = "El recurso de Films fue consultado correctamente", content = @Content(schema = @Schema(implementation = FilmResponseDTO.class))),
             @ApiResponse(responseCode = "404", description = "Recurso de Films no encontrado"),
             @ApiResponse(responseCode = "500", description = "Error interno al procesar la respuesta")
     })

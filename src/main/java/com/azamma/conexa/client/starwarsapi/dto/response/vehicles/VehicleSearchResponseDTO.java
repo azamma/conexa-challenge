@@ -8,13 +8,13 @@ import java.util.List;
 
 @Getter
 @Setter
-public class VehicleResponseDTO {
+public class VehicleSearchResponseDTO {
 
     @JsonProperty("message")
     private String message;
 
     @JsonProperty("result")
-    private Result result;
+    private List<Result> result;
 
     @Getter
     @Setter

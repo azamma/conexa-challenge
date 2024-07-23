@@ -4,6 +4,7 @@ import com.azamma.conexa.client.starwarsapi.annotation.ResponseErrorMessage;
 import com.azamma.conexa.client.starwarsapi.config.FeignErrorDecoder;
 import com.azamma.conexa.client.starwarsapi.dto.response.people.PeopleResponseDTO;
 import com.azamma.conexa.client.starwarsapi.dto.response.people.PersonResponseDTO;
+import com.azamma.conexa.client.starwarsapi.dto.response.people.PersonSearchResponseDTO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,7 +21,12 @@ public interface StarWarsPeopleApiClient {
     @ResponseErrorMessage(value = "Ocurrió un error al obtener los datos de People.")
     PeopleResponseDTO getAllPeople(@RequestParam("page") int page, @RequestParam("limit") int limit);
 
+    @GetMapping(value = "${feign.client.starwars-people-api.method.get-all-people}", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseErrorMessage(value = "Ocurrió un error al obtener los datos de People.")
+    PersonSearchResponseDTO searchPeople(@RequestParam(value = "name") String name);
+
     @GetMapping(value = "${feign.client.starwars-people-api.method.get-person-by-id}", consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseErrorMessage(value = "Ocurrió un error al obtener los datos del recurso de People.")
     PersonResponseDTO getPersonById(@PathVariable("id") int id);
+
 }

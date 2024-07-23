@@ -3,6 +3,7 @@ package com.azamma.conexa.client.starwarsapi;
 import com.azamma.conexa.client.starwarsapi.annotation.ResponseErrorMessage;
 import com.azamma.conexa.client.starwarsapi.config.FeignErrorDecoder;
 import com.azamma.conexa.client.starwarsapi.dto.response.vehicles.VehicleResponseDTO;
+import com.azamma.conexa.client.starwarsapi.dto.response.vehicles.VehicleSearchResponseDTO;
 import com.azamma.conexa.client.starwarsapi.dto.response.vehicles.VehiclesResponseDTO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.MediaType;
@@ -18,7 +19,16 @@ public interface StarWarsVehiclesApiClient {
 
     @GetMapping(value = "${feign.client.starwars-vehicles-api.method.get-all-vehicles}", consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseErrorMessage(value = "Ocurrió un error al obtener los datos de Vehicles.")
-    VehiclesResponseDTO getAllVehicles(@RequestParam("page") int page, @RequestParam("limit") int limit);
+    VehiclesResponseDTO getAllVehicles(
+            @RequestParam("page") int page,
+            @RequestParam("limit") int limit
+    );
+
+    @GetMapping(value = "${feign.client.starwars-vehicles-api.method.get-all-vehicles}", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseErrorMessage(value = "Ocurrió un error al obtener los datos de Vehicles.")
+    VehicleSearchResponseDTO searchVehicles(
+            @RequestParam(value = "name", required = false) String name,
+            @RequestParam(value = "model", required = false) String model);
 
     @GetMapping(value = "${feign.client.starwars-vehicles-api.method.get-vehicle-by-id}", consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseErrorMessage(value = "Ocurrió un error al obtener los datos del recurso de Vehicles.")

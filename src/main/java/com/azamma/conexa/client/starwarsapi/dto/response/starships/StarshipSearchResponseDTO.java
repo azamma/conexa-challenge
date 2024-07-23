@@ -1,4 +1,4 @@
-package com.azamma.conexa.client.starwarsapi.dto.response.vehicles;
+package com.azamma.conexa.client.starwarsapi.dto.response.starships;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
@@ -8,80 +8,69 @@ import java.util.List;
 
 @Getter
 @Setter
-public class VehicleResponseDTO {
-
-    @JsonProperty("message")
+public class StarshipSearchResponseDTO {
     private String message;
 
     @JsonProperty("result")
-    private Result result;
+    private List<StarshipDetail> results;
 
     @Getter
     @Setter
-    public static class Result {
-
+    public static class StarshipDetail {
         @JsonProperty("properties")
-        private Properties properties;
+        private StarshipProperties starshipProperties;
+
+        private String description;
 
         @JsonProperty("_id")
         private String id;
 
-        @JsonProperty("uid")
         private String uid;
 
-        @JsonProperty("description")
-        private String description;
+        @JsonProperty("__v")
+        private int version;
 
         @Getter
         @Setter
-        public static class Properties {
-
-            @JsonProperty("model")
+        public static class StarshipProperties {
             private String model;
 
-            @JsonProperty("vehicle_class")
-            private String vehicleClass;
+            @JsonProperty("starship_class")
+            private String starshipClass;
 
-            @JsonProperty("manufacturer")
             private String manufacturer;
 
             @JsonProperty("cost_in_credits")
             private String costInCredits;
 
-            @JsonProperty("length")
             private String length;
 
-            @JsonProperty("crew")
             private String crew;
 
-            @JsonProperty("passengers")
             private String passengers;
 
             @JsonProperty("max_atmosphering_speed")
             private String maxAtmospheringSpeed;
 
+            @JsonProperty("hyperdrive_rating")
+            private String hyperdriveRating;
+
+            @JsonProperty("MGLT")
+            private String MGLT;
+
             @JsonProperty("cargo_capacity")
             private String cargoCapacity;
 
-            @JsonProperty("consumables")
             private String consumables;
 
-            @JsonProperty("films")
-            private List<String> films;
-
-            @JsonProperty("pilots")
             private List<String> pilots;
 
-            @JsonProperty("created")
             private String created;
 
-            @JsonProperty("edited")
             private String edited;
 
-            @JsonProperty("name")
             private String name;
 
-            @JsonProperty("url")
             private String url;
         }
     }

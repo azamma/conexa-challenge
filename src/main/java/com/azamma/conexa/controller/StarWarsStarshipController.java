@@ -1,6 +1,7 @@
 package com.azamma.conexa.controller;
 
 import com.azamma.conexa.client.starwarsapi.dto.response.starships.StarshipResponseDTO;
+import com.azamma.conexa.client.starwarsapi.dto.response.starships.StarshipSearchResponseDTO;
 import com.azamma.conexa.client.starwarsapi.dto.response.starships.StarshipsResponseDTO;
 import com.azamma.conexa.exception.ErrorDetails;
 import io.swagger.v3.oas.annotations.Operation;
@@ -45,6 +46,28 @@ public interface StarWarsStarshipController {
     ResponseEntity<StarshipsResponseDTO> getAllStarships(
             @RequestParam(value = "page", defaultValue = "1") @Positive @Parameter(description = "Número de página para la consulta") Integer page,
             @RequestParam(value = "limit", defaultValue = "10") @Positive @Parameter(description = "Número de elementos por página") Integer limit);
+
+    /**
+     * Busca recursos de Starships con filtros.
+     *
+     * @param name  Nombre de la nave para filtrar.
+     * @param model Modelo de la nave para filtrar.
+     * @return Una respuesta {@link ResponseEntity} con el objeto {@link StarshipsResponseDTO} que contiene una lista filtrada de recursos de Starships.
+     */
+    @Operation(summary = "Buscar recursos de Starships con filtros.")
+    @Parameters({
+            @Parameter(name = "name", description = "Nombre de la nave para filtrar.", in = ParameterIn.QUERY, schema = @Schema(type = "string")),
+            @Parameter(name = "model", description = "Modelo de la nave para filtrar.", in = ParameterIn.QUERY, schema = @Schema(type = "string"))
+    })
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Búsqueda de Starships realizada correctamente", content = @Content(schema = @Schema(implementation = StarshipsResponseDTO.class))),
+            @ApiResponse(responseCode = "400", description = "La petición es inválida", content = @Content(schema = @Schema(implementation = ErrorDetails.class))),
+            @ApiResponse(responseCode = "500", description = "Error interno al procesar la respuesta", content = @Content(schema = @Schema(implementation = ErrorDetails.class)))
+    })
+    ResponseEntity<StarshipSearchResponseDTO> searchStarships(
+            @RequestParam(value = "name", required = false) @Parameter(description = "Nombre de la nave para filtrar") String name,
+            @RequestParam(value = "model", required = false) @Parameter(description = "Modelo de la nave para filtrar") String model
+    );
 
     /**
      * Obtiene un recurso específico de Starships por ID.

@@ -9,15 +9,24 @@ import java.util.List;
 @Getter
 @Setter
 public class PeopleResponseDTO {
+    private String message;
+
     @JsonProperty("total_records")
-    private int count;
+    private int totalRecords;
 
-    @JsonProperty("next")
-    private String next;
+    @JsonProperty("total_pages")
+    private int totalPages;
 
-    @JsonProperty("previous")
     private String previous;
+    private String next;
+    private List<PersonResult> results;
 
-    @JsonProperty("results")
-    private List<PersonShortResultDTO> results;
+    @Getter
+    @Setter
+    public static class PersonResult {
+        private String uid;
+        private String name;
+        private String url;
+    }
+
 }

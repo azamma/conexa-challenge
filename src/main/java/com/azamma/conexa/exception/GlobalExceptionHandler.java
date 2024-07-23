@@ -27,7 +27,7 @@ public class GlobalExceptionHandler {
                 exception.getMessage(),
                 HttpStatus.BAD_REQUEST.value(),
                 HttpStatus.BAD_REQUEST,
-                exception.getErrorCode()
+                "400"
         );
         logException(exception, errorDetails.getMessage(), errorDetails.getErrorCode());
         return new ResponseEntity<>(errorDetails, HttpStatus.BAD_REQUEST);
@@ -40,7 +40,7 @@ public class GlobalExceptionHandler {
                 exception.getMessage(),
                 HttpStatus.FORBIDDEN.value(),
                 HttpStatus.FORBIDDEN,
-                exception.getErrorCode()
+                "403"
         );
         logException(exception, errorDetails.getMessage(), errorDetails.getErrorCode());
         return new ResponseEntity<>(errorDetails, HttpStatus.FORBIDDEN);
@@ -53,7 +53,7 @@ public class GlobalExceptionHandler {
                 exception.getMessage(),
                 HttpStatus.NOT_FOUND.value(),
                 HttpStatus.NOT_FOUND,
-                exception.getErrorCode()
+                "404"
         );
         logException(exception, errorDetails.getMessage(), errorDetails.getErrorCode());
         return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
@@ -66,7 +66,7 @@ public class GlobalExceptionHandler {
                 exception.getMessage(),
                 HttpStatus.HTTP_VERSION_NOT_SUPPORTED.value(),
                 HttpStatus.HTTP_VERSION_NOT_SUPPORTED,
-                exception.getErrorCode()
+                "505"
         );
         logException(exception, errorDetails.getMessage(), errorDetails.getErrorCode());
         return new ResponseEntity<>(errorDetails, HttpStatus.HTTP_VERSION_NOT_SUPPORTED);
@@ -79,7 +79,7 @@ public class GlobalExceptionHandler {
                 exception.getMessage(),
                 HttpStatus.UNAUTHORIZED.value(),
                 HttpStatus.UNAUTHORIZED,
-                exception.getErrorCode()
+                "401"
         );
         logException(exception, errorDetails.getMessage(), errorDetails.getErrorCode());
         return new ResponseEntity<>(errorDetails, HttpStatus.UNAUTHORIZED);

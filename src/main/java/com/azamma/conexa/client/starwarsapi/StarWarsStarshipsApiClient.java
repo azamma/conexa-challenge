@@ -3,6 +3,7 @@ package com.azamma.conexa.client.starwarsapi;
 import com.azamma.conexa.client.starwarsapi.annotation.ResponseErrorMessage;
 import com.azamma.conexa.client.starwarsapi.config.FeignErrorDecoder;
 import com.azamma.conexa.client.starwarsapi.dto.response.starships.StarshipResponseDTO;
+import com.azamma.conexa.client.starwarsapi.dto.response.starships.StarshipSearchResponseDTO;
 import com.azamma.conexa.client.starwarsapi.dto.response.starships.StarshipsResponseDTO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.MediaType;
@@ -18,7 +19,17 @@ public interface StarWarsStarshipsApiClient {
 
     @GetMapping(value = "${feign.client.starwars-starships-api.method.get-all-starships}", consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseErrorMessage(value = "Ocurrió un error al obtener los datos de Starships.")
-    StarshipsResponseDTO getAllStarships(@RequestParam("page") int page, @RequestParam("limit") int limit);
+    StarshipsResponseDTO getAllStarships(
+            @RequestParam(value = "page", required = false) Integer page,
+            @RequestParam(value = "limit", required = false) Integer limit
+    );
+
+    @GetMapping(value = "${feign.client.starwars-starships-api.method.get-all-starships}", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseErrorMessage(value = "Ocurrió un error al obtener los datos de Starships.")
+    StarshipSearchResponseDTO searchStarships(
+            @RequestParam(value = "name", required = false) String name,
+            @RequestParam(value = "model", required = false) String model
+    );
 
     @GetMapping(value = "${feign.client.starwars-starships-api.method.get-starship-by-id}", consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseErrorMessage(value = "Ocurrió un error al obtener los datos del recurso de Starships.")
