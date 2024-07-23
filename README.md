@@ -15,6 +15,5 @@ Conexa Challenge es una aplicación Spring Boot desplegada en Fly.io que utiliza
 
 ### Enlaces
 
-- **Aplicación en Fly.io**: [Conexa Challenge App](https://azamma-conexa-challenge.fly.dev/)
-- **Keycloak propio en Fly.io**: [Keycloak](https://keycloak-conexa.fly.dev/admin/master/console/)
 - **Swagger de la app**: [Swagger UI](https://azamma-conexa-challenge.fly.dev/swagger-ui/index.html?configUrl=/api-docs/swagger-config#/)
+- **Keycloak propio en Fly.io**: [Keycloak](https://keycloak-conexa.fly.dev/admin/master/console/)
