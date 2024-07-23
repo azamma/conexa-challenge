@@ -32,7 +32,7 @@ Aplicación Spring Boot para challenge de Conexa desplegada en Fly.io que utiliz
 Para facilitar la interacción con la API de Star Wars, he creado una colección de Postman que incluye todas las solicitudes necesarias. Sigue los pasos a continuación para utilizar la colección:
 
 1. **Descarga la colección de Postman**:
-  - [Colección de Postman](ruta_a_tu_coleccion)
+  - La colección se encuentra en el repositorio.
 
 2. **Importa la colección en Postman**:
   - Abre Postman.

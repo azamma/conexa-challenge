@@ -1,0 +1,569 @@
+{
+	"info": {
+		"_postman_id": "aac5ad0b-ffb6-484d-a844-2b0051ee8691",
+		"name": "Conexa",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31523016"
+	},
+	"item": [
+		{
+			"name": "films",
+			"item": [
+				{
+					"name": "getAll",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://azamma-conexa-challenge.fly.dev/api/films/",
+							"protocol": "https",
+							"host": [
+								"azamma-conexa-challenge",
+								"fly",
+								"dev"
+							],
+							"path": [
+								"api",
+								"films",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://azamma-conexa-challenge.fly.dev/api/films/5",
+							"protocol": "https",
+							"host": [
+								"azamma-conexa-challenge",
+								"fly",
+								"dev"
+							],
+							"path": [
+								"api",
+								"films",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://azamma-conexa-challenge.fly.dev/api/films/search?title=new",
+							"protocol": "https",
+							"host": [
+								"azamma-conexa-challenge",
+								"fly",
+								"dev"
+							],
+							"path": [
+								"api",
+								"films",
+								"search"
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "new"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "starships",
+			"item": [
+				{
+					"name": "getAll",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://azamma-conexa-challenge.fly.dev/api/starships/10",
+							"protocol": "https",
+							"host": [
+								"azamma-conexa-challenge",
+								"fly",
+								"dev"
+							],
+							"path": [
+								"api",
+								"starships",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://azamma-conexa-challenge.fly.dev/api/starships/10",
+							"protocol": "https",
+							"host": [
+								"azamma-conexa-challenge",
+								"fly",
+								"dev"
+							],
+							"path": [
+								"api",
+								"starships",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://azamma-conexa-challenge.fly.dev/api/starships/search?name=cr",
+							"protocol": "https",
+							"host": [
+								"azamma-conexa-challenge",
+								"fly",
+								"dev"
+							],
+							"path": [
+								"api",
+								"starships",
+								"search"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "cr"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "people",
+			"item": [
+				{
+					"name": "getAll",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://azamma-conexa-challenge.fly.dev/api/people/",
+							"protocol": "https",
+							"host": [
+								"azamma-conexa-challenge",
+								"fly",
+								"dev"
+							],
+							"path": [
+								"api",
+								"people",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/people/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"people",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://azamma-conexa-challenge.fly.dev/api/people/search?name=Luke",
+							"protocol": "https",
+							"host": [
+								"azamma-conexa-challenge",
+								"fly",
+								"dev"
+							],
+							"path": [
+								"api",
+								"people",
+								"search"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Luke"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "vehicles",
+			"item": [
+				{
+					"name": "getAll",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "findById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://azamma-conexa-challenge.fly.dev/api/vehicles/42",
+							"protocol": "https",
+							"host": [
+								"azamma-conexa-challenge",
+								"fly",
+								"dev"
+							],
+							"path": [
+								"api",
+								"vehicles",
+								"42"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://azamma-conexa-challenge.fly.dev/api/vehicles/search?name=sith",
+							"protocol": "https",
+							"host": [
+								"azamma-conexa-challenge",
+								"fly",
+								"dev"
+							],
+							"path": [
+								"api",
+								"vehicles",
+								"search"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "sith"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "keycloak ADMIN",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let responseJson;\r",
+							"\r",
+							"// Parse the response body as JSON\r",
+							"try {\r",
+							"  responseJson = JSON.parse(pm.response.text());\r",
+							"} catch (error) {\r",
+							"  // Handle parsing error (optional)\r",
+							"  console.error(\"Error parsing response:\", error);\r",
+							"  return;\r",
+							"}\r",
+							"\r",
+							"// Extract the access_token\r",
+							"const accessToken = responseJson.access_token;\r",
+							"\r",
+							"// Set the global variable\r",
+							"pm.globals.set(\"accessToken\", accessToken);\r",
+							"\r",
+							"console.log(\"Access token stored in global variable:\", accessToken);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "conexa",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "conexa2024",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "conexachallengeapp",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://keycloak-conexa.fly.dev/realms/Conexa/protocol/openid-connect/token",
+					"protocol": "https",
+					"host": [
+						"keycloak-conexa",
+						"fly",
+						"dev"
+					],
+					"path": [
+						"realms",
+						"Conexa",
+						"protocol",
+						"openid-connect",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "keycloak USER",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let responseJson;\r",
+							"\r",
+							"// Parse the response body as JSON\r",
+							"try {\r",
+							"  responseJson = JSON.parse(pm.response.text());\r",
+							"} catch (error) {\r",
+							"  // Handle parsing error (optional)\r",
+							"  console.error(\"Error parsing response:\", error);\r",
+							"  return;\r",
+							"}\r",
+							"\r",
+							"// Extract the access_token\r",
+							"const accessToken = responseJson.access_token;\r",
+							"\r",
+							"// Set the global variable\r",
+							"pm.globals.set(\"accessToken\", accessToken);\r",
+							"\r",
+							"console.log(\"Access token stored in global variable:\", accessToken);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "zamma",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "aguzamma",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "conexachallengeapp",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://keycloak-conexa.fly.dev/realms/Conexa/protocol/openid-connect/token",
+					"protocol": "https",
+					"host": [
+						"keycloak-conexa",
+						"fly",
+						"dev"
+					],
+					"path": [
+						"realms",
+						"Conexa",
+						"protocol",
+						"openid-connect",
+						"token"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
