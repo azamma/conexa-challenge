@@ -5,9 +5,6 @@ import lombok.Setter;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-/**
- * @author Alejandro Moya
- */
 @Getter
 @Setter
 @ResponseStatus(value = HttpStatus.UNAUTHORIZED)
